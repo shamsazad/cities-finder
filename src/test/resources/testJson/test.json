@@ -1,0 +1,34 @@
+{
+  "suggestions": [
+    {
+      "name": "London,Ontario,,Canada",
+      "latitude": 42.98339,
+      "longitude": -81.23304,
+      "score": 0.9
+    },
+    {
+      "name": "London,England,Greater London,United Kingdom",
+      "latitude": 51.50853,
+      "longitude": -0.12574,
+      "score": 0.5
+    },
+    {
+      "name": "London,England,,United Kingdom",
+      "latitude": 51.49227,
+      "longitude": -0.30864,
+      "score": 0.5
+    },
+    {
+      "name": "London,Ohio,Madison,United States",
+      "latitude": 39.88645,
+      "longitude": -83.44825,
+      "score": 0.1
+    },
+    {
+      "name": "Londonderry,New Hampshire,Rockingham,United States",
+      "latitude": 42.86509,
+      "longitude": -71.37395,
+      "score": 0.1
+    }
+  ]
+}

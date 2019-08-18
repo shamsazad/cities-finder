@@ -12,7 +12,7 @@ public class ApiErrorTest {
 
         ApiError apiError = createApiError();
         apiError.setTimestamp(null);
-        
+
         ApiError apiError1 = createApiError();
         apiError1.setTimestamp(null);
 

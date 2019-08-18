@@ -41,35 +41,30 @@ public class CitiesSuggestionService {
         if(searchResult.getToponyms().size() == 0)
             return Suggestions.builder().suggestions(suggestionList).build();
 
-        try {
-            for (Toponym toponym : searchResult.getToponyms()) {
+        for (Toponym toponym : searchResult.getToponyms()) {
 
-                if(toponym.getPopulation() != null && toponym.getPopulation() > POPULATION) {
+            if(toponym.getPopulation() != null && toponym.getPopulation() > POPULATION) {
 
-                    if(isLongLatPresent)
-                        dist = distanceCalculatorService.distanceCalculator(longitudeValue, latitudeValue,
+                if(isLongLatPresent)
+                    dist = distanceCalculatorService.distanceCalculator(longitudeValue, latitudeValue,
                             toponym.getLongitude(), toponym.getLatitude());
 
-                    Suggestion suggestion = Suggestion.builder()
-                            .name(toponym.getName()+","+toponym.getAdminName1()
-                                    +","+toponym.getAdminName2()+","+toponym.getCountryName())
-                            .latitude(toponym.getLatitude())
-                            .longitude(toponym.getLongitude())
-                            .distance(dist)
-                            .population(toponym.getPopulation())
-                            .build();
+                Suggestion suggestion = Suggestion.builder()
+                        .name(toponym.getName()+","+toponym.getAdminName1() +","+
+                                toponym.getAdminName2()+","+toponym.getCountryName())
+                        .latitude(toponym.getLatitude())
+                        .longitude(toponym.getLongitude())
+                        .distance(dist)
+                        .population(toponym.getPopulation())
+                        .build();
 
-                    suggestionList.add(suggestion);
-                }
+                suggestionList.add(suggestion);
             }
-
-        } catch (Exception e){
-
         }
-        return calculateScore(suggestionList);
+        return getScoredSuggestions(suggestionList);
     }
 
-    private Suggestions calculateScore(List<Suggestion> suggestionList) {
+    private Suggestions getScoredSuggestions(List<Suggestion> suggestionList) {
 
         if(suggestionList.size() ==  1) {
             suggestionList.get(0).setScore(1.0f);

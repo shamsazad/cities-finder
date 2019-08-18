@@ -25,3 +25,12 @@ What things you need know to run the code and how to install them
 
 Currently the application is deployed on [heroku](https://dashboard.heroku.com/apps), at this [link](https://city-suggestor.herokuapp.com/). The application is currently failing because of a [third party jar](https://www.geonames.org/source-code/) that this application uses to find the cities.
 
+### Consuming API
+Once the application is running locally, open postman or a browser and call GET end-point of this application.
+```
+http://localhost:8080/suggestions?q=boston&longitude=-63.2505&latitude=-17.33866
+```
+**q** is the name of the place the client want to search.<br>
+**longitude** and **latitude** are optional parameters that a user can provide to get better suggestions.
+
+

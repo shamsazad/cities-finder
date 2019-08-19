@@ -19,6 +19,11 @@ import javax.validation.ConstraintViolationException;
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 
+/**
+ * A global exception handler handles any kind of exception arises in program.
+ * Specific exception handler invoke before more general exception handler.
+ * If finally the exception cannot be handled, an internal server exception with status 500 is returned.
+ */
 @ControllerAdvice
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
@@ -53,6 +58,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return buildResponseEntity(errorResponse);
     }
 
+    //If exception can't be handled.
     @ExceptionHandler(Exception.class)
     protected ResponseEntity<Object> handleUnknownException(Exception e) {
 

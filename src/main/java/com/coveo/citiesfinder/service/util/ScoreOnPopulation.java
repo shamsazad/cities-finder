@@ -11,6 +11,11 @@ public final class ScoreOnPopulation {
     private static long THIRTY_THOUSAND = 30000;
     private static long TWENTY_THOUSAND = 20000;
 
+    /**
+     *
+     * @param population
+     * @return a score based on population
+     */
     public static float getScoreOnPopulation(long population){
 
         if(population < TWENTY_THOUSAND)

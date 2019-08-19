@@ -2,9 +2,20 @@ package com.coveo.citiesfinder.service;
 
 import org.springframework.stereotype.Service;
 
+/**
+ * Given longitude and latitude between two place, this class will return the distance between them
+ */
 @Service
 public class DistanceCalculatorService {
 
+    /**
+     *
+     * @param userLongitude
+     * @param userLatitude
+     * @param cityLongitude
+     * @param cityLatitude
+     * @return Distance between two place
+     */
     public double distanceCalculator(double userLongitude, double userLatitude,
                                      double cityLongitude, double cityLatitude) {
 

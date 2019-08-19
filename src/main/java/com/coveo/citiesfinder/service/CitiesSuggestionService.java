@@ -10,6 +10,10 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *  This class process the response from GeoName client and prepare the response for client.
+ */
+
 @Service
 public class CitiesSuggestionService {
     
@@ -26,7 +30,15 @@ public class CitiesSuggestionService {
         this.distanceCalculatorService = distanceCalculatorService;
         this.scoringService = scoringService;
     }
-    
+
+    /**
+     *
+     * @param name
+     * @param longitude
+     * @param latitude
+     * @return A list of suggested cities based on score.
+     * @throws Exception
+     */
     public Suggestions suggestCities(String name, Double longitude, Double latitude) throws Exception {
 
         List<Suggestion> suggestionList = new ArrayList<>();

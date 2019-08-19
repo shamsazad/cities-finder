@@ -20,7 +20,11 @@ public final class ScoreOnDistance {
     private static long NINETY_SIX_HUNDRED = 9600;
     private static long TEN_THOUSAND_TWO_HUNDRED = 10200;
 
-
+    /**
+     *
+     * @param distance
+     * @return a score based on distance
+     */
     public static float getScoreOnDistance(double distance) {
 
         if(distance == 0)

@@ -8,6 +8,10 @@ import lombok.Data;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * Response data for a GET call
+ */
+
 @Data
 @Builder
 public class Suggestions implements Serializable {

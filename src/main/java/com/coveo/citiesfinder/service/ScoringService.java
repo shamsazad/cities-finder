@@ -8,9 +8,17 @@ import org.springframework.stereotype.Service;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Based  on the distance (user provided geo coordinates) and population, this service calculate score
+ */
 @Service
 public class ScoringService {
 
+    /**
+     *
+     * @param suggestionList
+     * @return Suggested list of cities sorted on score.
+     */
     public List<Suggestion> calculateScore(List<Suggestion> suggestionList) {
 
         float score;

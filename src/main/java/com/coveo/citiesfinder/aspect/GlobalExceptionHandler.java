@@ -4,10 +4,7 @@ import com.coveo.citiesfinder.models.response.ApiError;
 import org.geonames.GeoNamesException;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
@@ -48,14 +45,6 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                 ex.getValue(), ex.getRequiredType().getSimpleName()));
         apiError.setDebugMessage(ex.getMessage());
         return buildResponseEntity(apiError);
-    }
-
-    protected ResponseEntity<Object> handleMissingServletRequestParameter(
-            MissingServletRequestParameterException ex, HttpHeaders headers,
-            HttpStatus status, WebRequest request) {
-        String error = ex.getParameterName() + " parameter is missing";
-        ApiError errorResponse = new ApiError(BAD_REQUEST, error, ex);
-        return buildResponseEntity(errorResponse);
     }
 
     //If exception can't be handled.
